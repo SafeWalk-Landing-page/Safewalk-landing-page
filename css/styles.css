@@ -65,6 +65,7 @@ html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
 
 body {
   margin: 0;
+  padding-top: var(--nav-h);
   font-family: var(--f-texto);
   color: var(--negro);
   background: var(--fondo);
@@ -182,6 +183,11 @@ p  { margin: 0; }
   background: var(--azul);
   color: #fff;
   box-shadow: 0 2px 14px rgba(26,29,33,.12);
+  transition: box-shadow .2s ease, background-color .2s ease;
+}
+.nav.nav--scrolled {
+  background: var(--azul-700);
+  box-shadow: 0 8px 24px rgba(26,29,33,.18);
 }
 .nav__inner {
   height: 100%;
@@ -228,6 +234,7 @@ p  { margin: 0; }
 .nav__links a.is-active { color: #fff; }
 
 .nav__actions { display: flex; align-items: center; gap: .6rem; }
+.nav__mobile-actions { display: none; }
 .nav__actions .btn { padding: .55rem 1.1rem; font-size: .9rem; }
 .nav__login {
   font-family: var(--f-titulo);
@@ -255,7 +262,7 @@ p  { margin: 0; }
 .nav.is-open .nav__toggle span:nth-child(2) { opacity: 0; }
 .nav.is-open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-main { padding-top: var(--nav-h); }
+main { padding-top: 0; }
 
 /* ------------------------------------------------------------------ */
 /* 6. Banner de alerta (componente de la guía)                         */
@@ -270,7 +277,9 @@ main { padding-top: var(--nav-h); }
   font-size: .92rem;
   font-weight: 500;
   padding: .7rem 0;
+  transition: opacity .2s ease, transform .2s ease;
 }
+.alert-bar.is-hidden { opacity: 0; transform: translateY(-8px); pointer-events: none; }
 .alert-bar .container { display: flex; align-items: center; gap: .65rem; width: min(100% - 2.5rem, var(--container)); }
 .alert-bar .alert-icon { color: var(--amarillo); flex: none; }
 .alert-bar b { color: var(--negro); }
@@ -503,6 +512,10 @@ main { padding-top: var(--nav-h); }
 }
 .demo__phone svg { width: 100%; height: 100%; }
 
+
+.demo__title { margin-bottom: 1rem; }
+.demo__copy { color: var(--gris); margin-bottom: 1.5rem; }
+
 /* ------------------------------------------------------------------ */
 /* 14. Beneficios                                                      */
 /* ------------------------------------------------------------------ */
@@ -575,6 +588,7 @@ main { padding-top: var(--nav-h); }
 /* 17. Cómo empezar                                                    */
 /* ------------------------------------------------------------------ */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-bottom: 2.5rem; }
+.steps--clean { list-style: none; padding: 0; }
 .step {
   background: var(--card);
   border: 1px solid var(--gris-borde);
@@ -639,6 +653,7 @@ main { padding-top: var(--nav-h); }
 }
 .field { margin-bottom: 1.1rem; }
 .field label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: .4rem; }
+.field__hint { color: var(--gris); font-weight: 400; }
 .field .req { color: var(--rojo); }
 .field input, .field textarea {
   width: 100%;
@@ -703,6 +718,7 @@ main { padding-top: var(--nav-h); }
   transition: background-color .2s ease;
 }
 .footer__social a:hover { background: var(--verde); }
+.footer__button { margin-top: .5rem; }
 .footer__bottom {
   border-top: 1px solid rgba(255,255,255,.18);
   margin-top: 2.5rem; padding-top: 1.5rem;
@@ -730,6 +746,14 @@ main { padding-top: var(--nav-h); }
 .to-top.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .to-top:hover { background: var(--verde); }
 
+.feature:hover, .benefit:hover, .segment:hover, .testimonial:hover, .step:hover, .stat:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.feature, .benefit, .segment, .testimonial, .step, .stat {
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
 /* ------------------------------------------------------------------ */
 /* 22. Reveal al hacer scroll                                          */
 /* ------------------------------------------------------------------ */
@@ -744,27 +768,36 @@ main { padding-top: var(--nav-h); }
   .footer__grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 980px) {
   .nav__toggle { display: block; }
-  .nav__links, .nav__actions {
+  .nav__actions { display: none; }
+  .nav__links {
     position: fixed;
-    top: var(--nav-h); left: 0; right: 0;
+    top: var(--nav-h); left: 1rem; right: 1rem;
     flex-direction: column;
     align-items: stretch;
     background: var(--azul-700);
-    padding: 1rem 1.25rem;
-    gap: .35rem;
+    border-radius: 0 0 16px 16px;
+    padding: 1rem;
+    gap: .25rem;
     margin: 0;
-    transform: translateY(-130%);
-    transition: transform .3s ease;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-12px);
+    transition: opacity .2s ease, transform .2s ease, visibility .2s;
     box-shadow: 0 14px 24px rgba(26,29,33,.2);
   }
-  .nav__actions { top: auto; box-shadow: none; padding-top: 0; transform: translateY(-130%); }
-  .nav.is-open .nav__links { transform: translateY(0); }
-  .nav.is-open .nav__actions { transform: translateY(0); }
-  .nav__links a { padding: .8rem .6rem; }
+  .nav.is-open .nav__links {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+  .nav__links a { padding: .85rem .75rem; }
   .nav__links a::after { display: none; }
-  .nav__actions .btn, .nav__login { width: 100%; text-align: center; }
+  .nav__mobile-actions { display: grid; gap: .6rem; margin-top: .75rem; }
+  .nav__mobile-actions .btn, .nav__mobile-actions .nav__login { width: 100%; text-align: center; }
 
   .hero__grid { grid-template-columns: 1fr; }
   .hero__media { max-width: 420px; margin-inline: auto; order: -1; }
