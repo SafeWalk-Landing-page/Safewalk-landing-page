@@ -1,6 +1,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing:border-box;
 }
 
 html{
@@ -12,26 +13,31 @@ header{
     color: white;
     display: flex;
     justify-content: space-between;
-    padding: 16px 10%;
+    padding: 15px 8%;
     align-items: center;
     font-family: Arial, Helvetica, sans-serif;
     position: sticky;
     top: 0;
 }
 
+.logo img{
+    height: 45px;
+}
+
 nav{
-    background-color: #3363C4;
-    padding: 20px 30px;
-}
-
-ul{
-    list-style: none;
     display: flex;
-    justify-content: flex-start;
-    gap: 45px;
+    align-items: center;
+    width: 100%;
 }
 
-a{
+.nav-links{
+    list-style: none;
+    display: flex;    
+    gap: 40px;
+    margin-left: 50px;
+}
+
+.nav-links a{
     text-decoration: none;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -39,9 +45,88 @@ a{
     transition: 0.3s;
 }
 
-a:hover{
+.nav-links a:hover{
     text-shadow: 0 0 1.5px white;
 }
+
+.nav-buttons{
+    display: flex;
+    gap: 15px;
+    margin-left: auto;
+
+}
+
+.login-btn{
+    background:none;
+    border:none;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.register-btn{
+    background:white;
+    color:#3363C4;
+    border:none;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+#hero{
+    background:#F2F2F0;
+    min-height:90vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:80px;
+
+    padding:60px 10%;
+}
+
+.hero-content{
+    max-width:500px;
+}
+
+.hero-logo{
+    width:150px;
+    margin-bottom:20px;
+}
+
+.hero-content h1{
+    font-size:48px;
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:40px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:20px;
+}
+
+.primary-btn,
+.secondary-btn{
+    border:none;
+    background:#3363C4;
+    color:white;
+    padding:16px 28px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.hero-image img{
+    width:420px;
+    border-radius:30px;
+}
+
 
 #nosotros{
     text-align: center;
