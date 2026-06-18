@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     reveals.forEach((el) => el.classList.add('is-in'));
   }
-  hola wa
+  
   /* ======================================================
      Top bar y menú móvil
   ====================================================== */
