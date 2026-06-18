@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <meta name="theme-color" content="#3363C4">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -36,15 +37,24 @@
 
       <nav aria-label="Principal">
         <ul class="nav__links" id="navLinks">
-          <li><a href="#inicio" class="is-active">Inicio</a></li>
+          <li><a href="#inicio" class="is-active" aria-current="page">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#funcionalidades">Funcionalidades</a></li>
           <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#dirigidos">Segmentos</a></li>
+          <li><a href="#estadisticas">Cifras</a></li>
           <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#contacto">Contacto</a></li>
+
+          <!-- Botones que se muestran dentro del menú móvil -->
+          <li class="nav__mobile-actions">
+            <a class="nav__login" href="#contacto">Iniciar sesión</a>
+            <a class="btn nav__register" href="#contacto">Registrarse</a>
+          </li>
         </ul>
       </nav>
 
+      <!-- Botones visibles en escritorio -->
       <div class="nav__actions" id="navActions">
         <a class="nav__login" href="#contacto">Iniciar sesión</a>
         <a class="btn nav__register" href="#contacto">Registrarse</a>
@@ -56,7 +66,7 @@
     </div>
   </header>
 
-  <!-- Banner de alerta (componente de la guía de estilos) -->
+  <!-- Alerta superior: se puede cerrar con JavaScript -->
   <div class="alert-bar" id="alertBar" role="status">
     <div class="container">
       <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2Zm0 5 7.5 13h-15L12 7Zm-1 4v4h2v-4h-2Zm0 5v2h2v-2h-2Z"/></svg>
@@ -96,7 +106,7 @@
 
         <div class="hero__media reveal">
           <div>
-            <img class="local-img" src="img/safewalkhero.png" alt="Persona consultando rutas seguras en la app SafeWalk">
+            <img class="local-img" src="img/safewalkhero.png" alt="Persona consultando rutas seguras en la app SafeWalk" fetchpriority="high">
           </div>
           <div class="hero__badge"><span class="dot"></span> Ruta segura encontrada</div>
         </div>
@@ -121,27 +131,27 @@
         <div class="team reveal">
           <!-- Repetir tarjeta por integrante. Reemplaza la imagen en images/team-*.jpg -->
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_luis.jpg" alt="Foto de Luis Montañez"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_luis.jpg" loading="lazy" decoding="async" alt="Foto de Luis Montañez"></div></div>
             <figcaption><h4>Luis Montañez</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_leguer.png" alt="Foto de Leguer Silva"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_leguer.png" loading="lazy" decoding="async" alt="Foto de Leguer Silva"></div></div>
             <figcaption><h4>Leguer Silva</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_sephi.png" alt="Foto de Giusepphi Carlos"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_sephi.png" loading="lazy" decoding="async" alt="Foto de Giusepphi Carlos"></div></div>
             <figcaption><h4>Giusepphi Carlos</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_yair.png" alt="Foto de Yair Lender"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_yair.png" loading="lazy" decoding="async" alt="Foto de Yair Lender"></div></div>
             <figcaption><h4>Yair Lender</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_rolando.jpg" alt="Foto de Rolando Quevedo"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_rolando.jpg" loading="lazy" decoding="async" alt="Foto de Rolando Quevedo"></div></div>
             <figcaption><h4>Rolando Quevedo</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
           <figure class="team__card">
-            <div class="team__photo"><div><img class="local-img" src="img/team_lucas.jpg" alt="Foto de Lucas Benites"></div></div>
+            <div class="team__photo"><div><img class="local-img" src="img/team_lucas.jpg" loading="lazy" decoding="async" alt="Foto de Lucas Benites"></div></div>
             <figcaption><h4>Lucas Benites</h4><small>Developer SafeWalk</small></figcaption>
           </figure>
         </div>
@@ -368,8 +378,8 @@
             </svg>
           </div>
           <div class="demo__text">
-            <h3 style="margin-bottom:1rem">Explora antes de registrarte</h3>
-            <p style="color:var(--gris);margin-bottom:1.5rem">
+            <h3 class="demo__title">Explora antes de registrarte</h3>
+            <p class="demo__copy">
               Visualiza las zonas de riesgo (rojo), advertencia (amarillo) y rutas seguras
               (verde) directamente en el mapa. Cuando estés listo, crea tu cuenta gratuita
               para reportar incidencias y recibir alertas personalizadas.</p>
@@ -459,7 +469,7 @@
           <figure class="testimonial reveal">
             <blockquote class="testimonial__quote">SafeWalk me da tranquilidad cuando camino con mis hijos. Ahora puedo elegir rutas seguras y recibir alertas sobre zonas peligrosas. Es como tener un guía confiable siempre conmigo.</blockquote>
             <div class="testimonial__person">
-              <div class="testimonial__avatar"><div><img class="local-img" src="img/CarlaGomez.png" alt="Foto de Carla Gómez"></div></div>
+              <div class="testimonial__avatar"><div><img class="local-img" src="img/CarlaGomez.png" loading="lazy" decoding="async" alt="Foto de Carla Gómez"></div></div>
               <div>
                 <strong>Carla Gómez</strong>
                 <small>Madre de familia en Lima</small>
@@ -470,7 +480,7 @@
           <figure class="testimonial reveal">
             <blockquote class="testimonial__quote">Uso SafeWalk todos los días para ir a clases. Me ayuda a evitar zonas inseguras y a encontrar rutas más rápidas y seguras. Es una herramienta indispensable para quienes caminamos por la ciudad.</blockquote>
             <div class="testimonial__person">
-              <div class="testimonial__avatar"><div><img class="local-img" src="img/LuisRamirez.png" alt="Foto de Luis Ramírez"></div></div>
+              <div class="testimonial__avatar"><div><img class="local-img" src="img/LuisRamirez.png" loading="lazy" decoding="async" alt="Foto de Luis Ramírez"></div></div>
               <div>
                 <strong>Luis Ramírez</strong>
                 <small>Estudiante universitario en Lima</small>
@@ -485,14 +495,14 @@
     <!-- =============================================================== -->
     <!-- CÓMO EMPEZAR                                                    -->
     <!-- =============================================================== -->
-    <section class="section">
+    <section class="section" id="como-empezar">
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Guía rápida</span>
           <h2>¿Cómo empezar?</h2>
           <p>Seis pasos para caminar con confianza por tu ciudad.</p>
         </div>
-        <ol class="steps" style="list-style:none;padding:0">
+        <ol class="steps steps--clean">
           <li class="step reveal"><div class="step__num">1</div><h4>Regístrate o inicia sesión</h4><p>Crea tu cuenta con tu correo o accede fácilmente con Google o Facebook.</p></li>
           <li class="step reveal"><div class="step__num">2</div><h4>Activa tu ubicación</h4><p>Permite que la app detecte tu posición para mostrarte zonas de riesgo y rutas seguras cercanas.</p></li>
           <li class="step reveal"><div class="step__num">3</div><h4>Explora el mapa interactivo</h4><p>Visualiza las zonas de riesgo (rojo), advertencia (amarillo) y rutas seguras (verde).</p></li>
@@ -510,7 +520,7 @@
     <!-- =============================================================== -->
     <!-- ESTADÍSTICAS                                                    -->
     <!-- =============================================================== -->
-    <section class="section section--tint">
+    <section class="section section--tint" id="estadisticas">
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Datos de la comunidad</span>
@@ -549,6 +559,7 @@
         </div>
 
         <div class="contact reveal">
+          <!-- Formulario de contacto: validación básica con JavaScript -->
           <form id="contactForm" novalidate>
             <div class="field">
               <label for="nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
@@ -561,7 +572,7 @@
               <span class="error">Ingresa un correo válido, por ejemplo: nombre@correo.com</span>
             </div>
             <div class="field">
-              <label for="telefono">Número de teléfono <small style="color:var(--gris);font-weight:400">(opcional)</small></label>
+              <label for="telefono">Número de teléfono <small class="field__hint">(opcional)</small></label>
               <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" pattern="[0-9+ ]{6,15}" placeholder="+51 999 999 999">
               <span class="error">Usa solo números (entre 6 y 15 dígitos).</span>
             </div>
@@ -658,7 +669,7 @@
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Lima Metropolitana, Perú</li>
             <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg> Atención digital para usuarios y ciudadanos interesados en mejorar la seguridad peatonal.</li>
           </ul>
-          <a class="btn nav__register" href="#contacto" style="margin-top:.5rem">Escríbenos</a>
+          <a class="btn nav__register footer__button" href="#contacto">Escríbenos</a>
         </div>
       </div>
 
