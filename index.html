@@ -1,192 +1,678 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safewalk</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWalk · Camina seguro con información ciudadana en tiempo real</title>
+  <meta name="description" content="SafeWalk es una plataforma que muestra rutas seguras para transitar por las ciudades del Perú. Reporta incidencias, evita zonas de riesgo y camina con tranquilidad.">
+
+  <!-- Tipografía: Poppins (títulos/botones) · Inter (cuerpo/UI) · Montserrat (alternativa) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="SafeWalk Logo">
+  <!-- Accesibilidad: salto al contenido (Nielsen: flexibilidad y eficiencia) -->
+  <a class="skip-link" href="#inicio">Saltar al contenido</a>
+
+  <!-- =============================================================== -->
+  <!-- NAVEGACIÓN FIJA                                                 -->
+  <!-- =============================================================== -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="brand" href="#inicio" aria-label="SafeWalk, inicio">
+        <!-- Logo: pin + peatón -->
+        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+          <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#fff"/>
+          <path d="M24 5C16.3 5 10 11.2 10 19c0 9.4 12.6 22.4 14 23.8C25.4 41.4 38 28.4 38 19 38 11.2 31.7 5 24 5Z" stroke="#3363C4" stroke-width="2"/>
+          <circle cx="27" cy="12.5" r="2.4" fill="#1BBA7F"/>
+          <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
+        </svg>
+        <span><b>Safe</b>Walk</span>
+      </a>
+
+      <nav aria-label="Principal">
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#inicio" class="is-active">Inicio</a></li>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#beneficios">Beneficios</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav__actions" id="navActions">
+        <a class="nav__login" href="#contacto">Iniciar sesión</a>
+        <a class="btn nav__register" href="#contacto">Registrarse</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Banner de alerta (componente de la guía de estilos) -->
+  <div class="alert-bar" id="alertBar" role="status">
+    <div class="container">
+      <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2Zm0 5 7.5 13h-15L12 7Zm-1 4v4h2v-4h-2Zm0 5v2h2v-2h-2Z"/></svg>
+      <span><b>Evita esta zona:</b> incidente reportado cerca de Av. Arequipa hace 5 minutos.</span>
+      <button class="alert-close" id="alertClose" aria-label="Cerrar aviso">&times;</button>
+    </div>
+  </div>
+
+  <main>
+
+    <!-- =============================================================== -->
+    <!-- HERO                                                            -->
+    <!-- =============================================================== -->
+    <section class="hero container" id="inicio">
+      <div class="hero__grid">
+        <div class="hero__text reveal">
+          <div class="hero__logo">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#ECF1FB"/>
+              <path d="M24 5C16.3 5 10 11.2 10 19c0 9.4 12.6 22.4 14 23.8C25.4 41.4 38 28.4 38 19 38 11.2 31.7 5 24 5Z" stroke="#3363C4" stroke-width="2.2"/>
+              <circle cx="27" cy="12.5" r="2.6" fill="#1BBA7F"/>
+              <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
+            </svg>
+            <span>Safe<i>Walk</i></span>
+          </div>
+          <h1>¡Bienvenido a <b>SafeWalk</b>!</h1>
+          <p class="hero__lead">
+            SafeWalk es una plataforma que muestra las rutas seguras para transitar
+            por las ciudades del Perú. Nuestra prioridad es la seguridad de nuestros
+            usuarios y la mejora de los distritos.
+          </p>
+          <div class="hero__cta">
+            <a class="btn btn--lg" href="#contacto">Registrarme gratis</a>
+            <a class="btn btn--ghost btn--lg" href="#funcionalidades">Ver cómo funciona</a>
+          </div>
         </div>
 
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#hero">Inicio</a></li>
-                <li><a href="#nosotros">Sobre Nosotros</a></li>
-                <li><a href="#producto">Producto</a></li>                
-                <li><a href="#clientes">Clientes</a></li>                
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-
-            <div class="nav-buttons">                
-                <button class="login-btn">Iniciar sesión</button>
-                <button class="register-btn">Registrarse</button>
-            </div>            
-        </nav>
-    </header>
-
-    <section id="hero">
-        <div class="hero-content">
-            <img src="img/logo.png" alt="SafeWalk Logo" class="hero-logo">
-
-            <h1>¡Bienvenido a SafeWalk!</h1>
-
-            <p>SafeWalk es una plataforma que tiene como objetivo mostrar las rutas
-            seguras para poder transitar por las ciudades del Perú.
-            Nuestra prioridad es la seguridad de nuestros usuarios y la mejora de los distritos.
-            </p>
-
-            <div class="hero-buttons">
-                <button class="primary-btn">Registrarme gratis</button>
-                <button class="secondary-btn">Ver cómo funciona</button>
-            </div>
-
+        <div class="hero__media reveal">
+          <div class="ph" data-label="images/hero.jpg — Persona usando SafeWalk en la ciudad">
+            <img class="local-img" src="images/hero.jpg" alt="Persona consultando rutas seguras en la app SafeWalk">
+          </div>
+          <div class="hero__badge"><span class="dot"></span> Ruta segura encontrada</div>
         </div>
-
-        <div class="hero-image">
-            <img src="img/safewalkhero.png" alt="SafeWalk Hero">
-        </div> 
-        
+      </div>
     </section>
 
-    
+    <!-- =============================================================== -->
+    <!-- ¿QUIÉNES SOMOS? + EQUIPO                                        -->
+    <!-- =============================================================== -->
+    <section class="section section--tint" id="nosotros">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">¿Quiénes somos?</span>
+          <h2>Un equipo que cree en caminar sin miedo</h2>
+        </div>
+        <p class="about__intro reveal">
+          Somos una startup que inició en la Universidad Peruana de Ciencias Aplicadas
+          en el año 2026, por un grupo de estudiantes de las carreras de ingeniería de
+          software y sistemas.
+        </p>
 
-
-    <section id="nosotros">
-        <h2>Sobre nosotros</h2>
-        <p>Somos una startup que inició en la Universidad Peruana de Ciencias Aplicadas en el año 2026 por un grupo de estudiantes de las carreras de ingeniería de software y sistemas. </p>
-
-        <div class="container-integrantes">
-
-            <div class="member">
-                <img src="img/team_luis.jpg" alt="Integrante 1">
-                <h3>Luis Montañez</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_leguer.png" alt="Integrante 2">
-                <h3>Leguer Silva</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_sephi.png" alt="Integrante 3">
-                <h3>Giusephi Carlos</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_yair.png" alt="Integrante 4">
-                <h3>Yair Lender</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_rolando.jpg" alt="Integrante 5">
-                <h3>Rolando Quevedo</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_lucas.jpg" alt="Integrante 6">
-                <h3>Lucas Benites</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-
-            <div class="member">
-                <img src="img/team_gianfranco.png" alt="Integrante 7">
-                <h3>Gian Franco Timoteo</h3>
-                <p>Developer SafeWalk</p>
-            </div>
-            
-
-
+        <div class="team reveal">
+          <!-- Repetir tarjeta por integrante. Reemplaza la imagen en images/team-*.jpg -->
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-1.jpg"><img class="local-img" src="images/team-1.jpg" alt="Foto de Luis Montañez"></div></div>
+            <figcaption><h4>Luis Montañez</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-2.jpg"><img class="local-img" src="images/team-2.jpg" alt="Foto de Leguer Silva"></div></div>
+            <figcaption><h4>Leguer Silva</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-3.jpg"><img class="local-img" src="images/team-3.jpg" alt="Foto de Giusepphi Carlos"></div></div>
+            <figcaption><h4>Giusepphi Carlos</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-4.jpg"><img class="local-img" src="images/team-4.jpg" alt="Foto de Yair Lender"></div></div>
+            <figcaption><h4>Yair Lender</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-5.jpg"><img class="local-img" src="images/team-5.jpg" alt="Foto de Rolando Quevedo"></div></div>
+            <figcaption><h4>Rolando Quevedo</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
+          <figure class="team__card">
+            <div class="team__photo"><div class="ph" data-label="team-6.jpg"><img class="local-img" src="images/team-6.jpg" alt="Foto de Lucas Benites"></div></div>
+            <figcaption><h4>Lucas Benites</h4><small>Developer SafeWalk</small></figcaption>
+          </figure>
         </div>
 
-        <div class="misionvision">
-            <h3>Mision</h3>
-            <p>Desarrollar una aplicación web accesible que permita identificar, reportar y visualizar zonas de riesgo peatonal en tiempo real.</p>
-            <h3>Vision</h3>
-            <p>Consolidar SafeWalk como plataforma referente en seguridad peatonal urbana en el Perú, promoviendo ciudades más seguras mediante tecnología colaborativa.</p>
+        <!-- Misión / Visión -->
+        <div class="mv">
+          <article class="mv__card reveal">
+            <div class="ico-pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
+            <h3>Misión</h3>
+            <p>Desarrollar una aplicación web accesible que permita identificar, reportar
+               y visualizar zonas de riesgo peatonal en tiempo real.</p>
+          </article>
+          <article class="mv__card reveal">
+            <div class="ico-pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Visión</h3>
+            <p>Consolidar SafeWalk como plataforma referente en seguridad peatonal urbana
+               en el Perú, promoviendo ciudades más seguras mediante tecnología colaborativa.</p>
+          </article>
         </div>
-
-        <!--Nuestro valores-->
-        <!--Contexto de nuestro proyecto-->
-
+      </div>
     </section>
 
+    <!-- =============================================================== -->
+    <!-- VALORES + CONTEXTO                                              -->
+    <!-- =============================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="values-row">
+          <div class="values reveal">
+            <h3>Nuestros valores</h3>
+            <div class="values__grid">
+              <div class="value">
+                <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 11a4 4 0 1 0-8 0"/><circle cx="12" cy="7" r="0"/><path d="M3 21v-1a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5v1"/><circle cx="6" cy="9" r="2"/><circle cx="18" cy="9" r="2"/></svg></div>
+                <strong>Colaboración ciudadana</strong>
+                <p>Los reportes de los usuarios alimentan un sistema colectivo que fortalece la seguridad peatonal.</p>
+              </div>
+              <div class="value">
+                <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 14h2m4 0h2"/></svg></div>
+                <strong>Accesibilidad tecnológica</strong>
+                <p>Plataforma web y móvil, diseñada con interfaces claras y tipografía legible para todos.</p>
+              </div>
+              <div class="value">
+                <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="4" r="2"/><path d="M12 6v6m0 0-3 6m3-6 3 6M8 9h8"/></svg></div>
+                <strong>Seguridad peatonal</strong>
+                <p>Priorizamos la protección de los peatones, ofreciendo rutas seguras y alertas preventivas.</p>
+              </div>
+            </div>
+          </div>
 
-    
+          <aside class="context reveal">
+            <h3>Contexto de nuestro proyecto</h3>
+            <p>En ciudades como Lima Metropolitana, los peatones enfrentan riesgos diarios
+               debido al mal estado de la infraestructura, la falta de señalización y la
+               ausencia de información preventiva sobre zonas peligrosas. Esta situación
+               afecta especialmente a quienes caminan como parte de su rutina y a padres
+               con niños, aumentando su exposición al peligro en un entorno urbano
+               dominado por vehículos.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-    <section id="producto">
+    <!-- =============================================================== -->
+    <!-- FUNCIONALIDADES                                                 -->
+    <!-- =============================================================== -->
+    <section class="section section--tint" id="funcionalidades">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Funcionalidades</span>
+          <h2>Todo lo que necesitas para caminar seguro</h2>
+          <p>Herramientas pensadas para informarte antes, durante y después de tu recorrido.</p>
+        </div>
 
-        <h2>Funcionalidades</h2>
-
-    <div class="feature-box">
-        <div class="feature-text">
+        <!-- Feature 1: Mapa de riesgos -->
+        <div class="feature reveal">
+          <div class="feature__text">
+            <span class="tag">Visualización en tiempo real</span>
             <h3>Mapa de riesgos interactivo</h3>
-            <p>
-                Permite visualizar en tiempo real las zonas urbanas con mayor nivel de riesgo peatonal. El mapa utiliza un estilo desaturado para que las alertas y rutas seguras resalten claramente. Los usuarios pueden identificar veredas deterioradas, cruces sin señalización o puntos inseguros antes de desplazarse.
-            </p>
+            <p>Permite visualizar en tiempo real las zonas urbanas con mayor nivel de riesgo
+               peatonal. El mapa utiliza un estilo desaturado para que las alertas y rutas
+               seguras resalten claramente. Identifica veredas deterioradas, cruces sin
+               señalización o puntos inseguros antes de desplazarte.</p>
+            <div class="legend">
+              <span><i class="l-rojo"></i> Zona de riesgo</span>
+              <span><i class="l-amarillo"></i> Zona de advertencia</span>
+              <span><i class="l-verde"></i> Ruta segura</span>
+            </div>
+          </div>
+          <div class="feature__visual">
+            <svg viewBox="0 0 360 240" role="img" aria-label="Mapa con zonas de riesgo y rutas seguras">
+              <rect width="360" height="240" rx="10" fill="#EEF0EC"/>
+              <path d="M0 70h360M0 150h360M120 0v240M250 0v240" stroke="#DDE2DA" stroke-width="6"/>
+              <path d="M30 200 Q120 160 180 150 T330 60" stroke="#1BBA7F" stroke-width="6" fill="none" stroke-linecap="round"/>
+              <circle cx="30" cy="200" r="7" fill="#1BBA7F"/><circle cx="330" cy="60" r="7" fill="#3363C4"/>
+              <circle cx="95" cy="55" r="26" fill="#E53935" opacity=".22"/><circle cx="95" cy="55" r="10" fill="#E53935"/>
+              <circle cx="270" cy="180" r="22" fill="#FBC02D" opacity=".30"/><circle cx="270" cy="180" r="9" fill="#FBC02D"/>
+              <g transform="translate(150 95)"><circle r="14" fill="#fff"/><path d="M-4 -6h8v3l-3 9-3-9z" fill="#E53935"/></g>
+            </svg>
+          </div>
         </div>
 
-        <div class="feature-image">
-            <img src="img/mapa_riesgo_interactivo.png" alt="Mapa de riesgos">
-        </div>
-    </div>
-
-    <div class="feature-box">
-        <div class="feature-text">
+        <!-- Feature 2: Reporte ciudadano -->
+        <div class="feature reveal">
+          <div class="feature__text">
+            <span class="tag">3 pasos</span>
             <h3>Reporte ciudadano</h3>
-            <p>
-                Facilita que cualquier persona registre incidencias en máximo tres pasos, siguiendo un flujo rápido y accesible. Los reportes se integran en un sistema colectivo, reforzando la colaboración ciudadana y permitiendo que las autoridades tengan información más precisa sobre problemas de infraestructura.
-            </p>
+            <p>Facilita que cualquier persona registre incidencias en máximo tres pasos,
+               siguiendo un flujo rápido y accesible. Los reportes se integran en un sistema
+               colectivo, reforzando la colaboración ciudadana y permitiendo que las
+               autoridades tengan información más precisa sobre la infraestructura.</p>
+          </div>
+          <div class="feature__visual">
+            <svg viewBox="0 0 360 200" role="img" aria-label="Flujo de reporte en tres pasos">
+              <g font-family="Inter, sans-serif" font-size="11" fill="#5A626C" text-anchor="middle">
+                <rect x="20" y="50" width="80" height="100" rx="10" fill="#ECF1FB" stroke="#3363C4"/>
+                <text x="60" y="40">1. Completar</text>
+                <rect x="36" y="70" width="48" height="7" rx="3" fill="#3363C4"/>
+                <rect x="36" y="86" width="48" height="7" rx="3" fill="#C7D6F2"/>
+                <rect x="36" y="102" width="48" height="7" rx="3" fill="#C7D6F2"/>
+                <path d="M108 100h24" stroke="#1BBA7F" stroke-width="2" marker-end="url(#ar)"/>
+                <rect x="140" y="50" width="80" height="100" rx="10" fill="#E7F8F1" stroke="#1BBA7F"/>
+                <text x="180" y="40">2. Subir foto</text>
+                <circle cx="180" cy="95" r="20" fill="none" stroke="#1BBA7F" stroke-width="2"/>
+                <path d="M172 95h16M180 87v16" stroke="#1BBA7F" stroke-width="2"/>
+                <path d="M228 100h24" stroke="#1BBA7F" stroke-width="2" marker-end="url(#ar)"/>
+                <rect x="260" y="50" width="80" height="100" rx="10" fill="#ECF1FB" stroke="#3363C4"/>
+                <text x="300" y="40">3. Enviar</text>
+                <path d="M285 98l9 9 18-20" stroke="#1BBA7F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </g>
+              <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3z" fill="#1BBA7F"/></marker></defs>
+            </svg>
+          </div>
         </div>
 
-        <div class="feature-image">
-            <img src="img/pasos_reporte.png" alt="Reporte ciudadano">
-        </div>
-    </div>
-
-    <div class="feature-box">
-        <div class="feature-text">
+        <!-- Feature 3: Alertas preventivas -->
+        <div class="feature reveal">
+          <div class="feature__text">
+            <span class="tag">Notificaciones inmediatas</span>
             <h3>Alertas preventivas</h3>
-            <p>
-                Notificaciones inmediatas (snackbars o banners) que advierten al usuario sobre riesgos cercanos, como zonas inseguras o incidentes recientes. Estas alertas están diseñadas para captar la atención rápidamente y ayudar en la toma de decisiones en movimiento.
-            </p>
+            <p>Notificaciones inmediatas —snackbars o banners— que advierten al usuario sobre
+               riesgos cercanos, como zonas inseguras o incidentes recientes. Diseñadas para
+               captar la atención rápidamente y ayudar en la toma de decisiones en movimiento.</p>
+          </div>
+          <div class="feature__visual">
+            <svg viewBox="0 0 360 200" role="img" aria-label="Ejemplos de alertas preventivas">
+              <g font-family="Inter, sans-serif" font-size="11">
+                <rect x="30" y="30" width="300" height="44" rx="10" fill="#FDECEC" stroke="#E53935"/>
+                <path d="M55 52 47 66h16z" fill="#E53935"/><rect x="50" y="56" width="2" height="5" fill="#fff"/><rect x="50" y="63" width="2" height="2" fill="#fff"/>
+                <text x="78" y="50" fill="#1A1D21" font-weight="600">Evita esta zona</text>
+                <text x="78" y="64" fill="#5A626C">Incidente reportado a 120 m de tu ruta</text>
+
+                <rect x="30" y="86" width="300" height="44" rx="10" fill="#FEF6E0" stroke="#FBC02D"/>
+                <path d="M55 108 47 122h16z" fill="#FBC02D"/>
+                <text x="78" y="106" fill="#1A1D21" font-weight="600">Zona de advertencia cercana</text>
+                <text x="78" y="120" fill="#5A626C">Cruce sin señalización adelante</text>
+
+                <rect x="30" y="142" width="300" height="40" rx="10" fill="#E7F8F1" stroke="#1BBA7F"/>
+                <path d="M50 160l6 6 12-13" stroke="#1BBA7F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <text x="78" y="166" fill="#149065" font-weight="600">Ruta segura encontrada</text>
+              </g>
+            </svg>
+          </div>
         </div>
 
-        <div class="feature-image">
-            <img src="img/alertas_preventivas.png" alt="Alertas preventivas">
-        </div>
-    </div>
-
-    <div class="feature-box">
-        <div class="feature-text">
+        <!-- Feature 4: Rutas seguras -->
+        <div class="feature reveal">
+          <div class="feature__text">
+            <span class="tag">Trayectos confiables</span>
             <h3>Rutas seguras</h3>
-            <p>
-                Ofrece alternativas confiables de desplazamiento, priorizando la seguridad peatonal. Las rutas se destacan en verde dentro del mapa y se actualizan con base en los reportes ciudadanos, garantizando que los usuarios puedan elegir trayectos con menor exposición al riesgo.
-            </p>
+            <p>Ofrece alternativas confiables de desplazamiento, priorizando la seguridad
+               peatonal. Las rutas se destacan en verde dentro del mapa y se actualizan con
+               base en los reportes ciudadanos, garantizando que elijas trayectos con menor
+               exposición al riesgo.</p>
+          </div>
+          <div class="feature__visual">
+            <svg viewBox="0 0 360 220" role="img" aria-label="Ruta segura sugerida en el mapa">
+              <rect width="360" height="220" rx="10" fill="#EEF0EC"/>
+              <path d="M0 60h360M0 140h360M90 0v220M230 0v220" stroke="#DDE2DA" stroke-width="6"/>
+              <path d="M40 180 L90 180 L90 100 L230 100 L230 50 L320 50" stroke="#1BBA7F" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"/>
+              <circle cx="40" cy="180" r="9" fill="#1BBA7F" stroke="#fff" stroke-width="3"/>
+              <g transform="translate(320 50)"><path d="M0 -14C-7 -14 -12 -9 -12 -2 -12 7 0 16 0 16s12-9 12-18C12 -9 7 -14 0 -14Z" fill="#3363C4"/><circle cy="-3" r="4" fill="#fff"/></g>
+              <circle cx="150" cy="40" r="16" fill="#E53935" opacity=".2"/><circle cx="150" cy="40" r="6" fill="#E53935"/>
+            </svg>
+          </div>
         </div>
-
-        <div class="feature-image">
-            <img src="img/rutas_seguras.png" alt="Alertas preventivas">
-        </div>
-    </div>
-
-
-        
-
+      </div>
     </section>
 
-    
+    <!-- =============================================================== -->
+    <!-- DEMO INTERACTIVA                                                -->
+    <!-- =============================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Demostración</span>
+          <h2>Mapa interactivo · versión de demostración</h2>
+          <p>Prueba una demostración del mapa de SafeWalk sin necesidad de registro previo.
+             Los datos son de ejemplo. Para las funcionalidades completas, descarga la app móvil.</p>
+        </div>
 
-    
-    
+        <div class="demo reveal">
+          <div class="demo__phone">
+            <svg viewBox="0 0 200 400" role="img" aria-label="Vista previa de la app móvil SafeWalk">
+              <rect width="200" height="400" fill="#F4F5F0"/>
+              <rect width="200" height="48" fill="#3363C4"/>
+              <text x="16" y="30" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#fff">SafeWalk</text>
+              <circle cx="178" cy="24" r="9" fill="#1BBA7F"/>
+              <!-- mapa -->
+              <rect y="48" width="200" height="300" fill="#EEF0EC"/>
+              <path d="M0 120h200M0 230h200M70 48v300M140 48v300" stroke="#DDE2DA" stroke-width="5"/>
+              <path d="M30 320 L70 320 L70 200 L140 200 L140 110 L175 110" stroke="#1BBA7F" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="30" cy="320" r="7" fill="#1BBA7F" stroke="#fff" stroke-width="2"/>
+              <circle cx="100" cy="90" r="18" fill="#E53935" opacity=".22"/><circle cx="100" cy="90" r="7" fill="#E53935"/>
+              <circle cx="155" cy="260" r="15" fill="#FBC02D" opacity=".3"/><circle cx="155" cy="260" r="6" fill="#FBC02D"/>
+              <!-- snackbar -->
+              <rect x="14" y="300" width="172" height="36" rx="8" fill="#1A1D21"/>
+              <path d="M30 314l5 5 9-10" stroke="#1BBA7F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="52" y="322" font-family="Inter, sans-serif" font-size="9" fill="#fff">Ruta segura encontrada</text>
+              <!-- nav inferior -->
+              <rect y="348" width="200" height="52" fill="#fff"/>
+              <circle cx="50" cy="374" r="6" fill="#3363C4"/>
+              <circle cx="100" cy="374" r="12" fill="#1BBA7F"/><path d="M95 374h10M100 369v10" stroke="#fff" stroke-width="2"/>
+              <circle cx="150" cy="374" r="6" fill="#C7D6F2"/>
+            </svg>
+          </div>
+          <div class="demo__text">
+            <h3 style="margin-bottom:1rem">Explora antes de registrarte</h3>
+            <p style="color:var(--gris);margin-bottom:1.5rem">
+              Visualiza las zonas de riesgo (rojo), advertencia (amarillo) y rutas seguras
+              (verde) directamente en el mapa. Cuando estés listo, crea tu cuenta gratuita
+              para reportar incidencias y recibir alertas personalizadas.</p>
+            <div class="hero__cta">
+              <a class="btn" href="#contacto">Registrarme gratis</a>
+              <a class="btn btn--ghost" href="#funcionalidades">Ver funcionalidades</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- BENEFICIOS                                                      -->
+    <!-- =============================================================== -->
+    <section class="section section--tint" id="beneficios">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Beneficios</span>
+          <h2>Por qué elegir SafeWalk</h2>
+        </div>
+        <div class="cards-4">
+          <article class="benefit reveal">
+            <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+            <strong>Información en tiempo real</strong>
+            <p>Los reportes ciudadanos se actualizan en el mapa en segundos, brindando información siempre vigente.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/></svg></div>
+            <strong>Participación ciudadana gratuita</strong>
+            <p>SafeWalk es 100% gratuito para todos. Sin costos ocultos ni suscripciones.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3 4 6v6c0 5 3.4 8.3 8 9 4.6-.7 8-4 8-9V6l-8-3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <strong>Seguridad para familias</strong>
+            <p>Incluye modo Ruta familiar que prioriza cruces seguros e iluminación en los recorridos con niños.</p>
+          </article>
+          <article class="benefit reveal">
+            <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="10" r="2.4"/><path d="M3 20v-1a5 5 0 0 1 5-5h2a5 5 0 0 1 5 5v1M16 14a4 4 0 0 1 5 4v2"/></svg></div>
+            <strong>Contribuir a la comunidad</strong>
+            <p>Al publicar un reporte, contribuyes con tus vecinos de la zona para una mayor seguridad colectiva.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- SEGMENTOS OBJETIVO                                              -->
+    <!-- =============================================================== -->
+    <section class="section" id="dirigidos">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">¿A quiénes nos dirigimos?</span>
+          <h2>Segmentos objetivo</h2>
+        </div>
+        <div class="segments">
+          <article class="segment reveal">
+            <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="5" r="2.5"/><path d="M12 7v7m0 0-3 7m3-7 3 7M8 10h8"/></svg></div>
+            <h3>Peatones urbanos cotidianos</h3>
+            <p>Personas que se desplazan diariamente por la ciudad como parte de su rutina
+               laboral, educativa o personal. Necesitan rutas seguras, información preventiva
+               sobre zonas de riesgo y alertas rápidas para tomar decisiones en movimiento.</p>
+            <a class="btn btn--block" href="#contacto">Empieza a caminar seguro</a>
+          </article>
+          <article class="segment reveal">
+            <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="5" r="2.5"/><circle cx="17" cy="7" r="1.8"/><path d="M8 7v6m0 0-2 6m2-6 2 6M5 10h6M17 9v4m0 0-1.5 5m1.5-5 1.5 5"/></svg></div>
+            <h3>Padres de familia con niños</h3>
+            <p>Adultos responsables que transitan con menores en espacios urbanos, donde la
+               seguridad peatonal es crítica. Buscan información confiable sobre infraestructura
+               segura, rutas alternativas y reportes ciudadanos que les ayuden a evitar zonas inseguras.</p>
+            <a class="btn btn--verde btn--block" href="#contacto">Protege a tu familia</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- TESTIMONIOS                                                     -->
+    <!-- =============================================================== -->
+    <section class="section section--tint" id="testimonios">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Testimonios</span>
+          <h2>Lo que dicen nuestros usuarios</h2>
+        </div>
+        <div class="testimonials">
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial__quote">SafeWalk me da tranquilidad cuando camino con mis hijos. Ahora puedo elegir rutas seguras y recibir alertas sobre zonas peligrosas. Es como tener un guía confiable siempre conmigo.</blockquote>
+            <div class="testimonial__person">
+              <div class="testimonial__avatar"><div class="ph" data-label="user-1"><img class="local-img" src="images/user-1.jpg" alt="Foto de Carla Gómez"></div></div>
+              <div>
+                <strong>Carla Gómez</strong>
+                <small>Madre de familia en Lima</small>
+                <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              </div>
+            </div>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial__quote">Uso SafeWalk todos los días para ir a clases. Me ayuda a evitar zonas inseguras y a encontrar rutas más rápidas y seguras. Es una herramienta indispensable para quienes caminamos por la ciudad.</blockquote>
+            <div class="testimonial__person">
+              <div class="testimonial__avatar"><div class="ph" data-label="user-2"><img class="local-img" src="images/user-2.jpg" alt="Foto de Luis Ramírez"></div></div>
+              <div>
+                <strong>Luis Ramírez</strong>
+                <small>Estudiante universitario en Lima</small>
+                <div class="stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- CÓMO EMPEZAR                                                    -->
+    <!-- =============================================================== -->
+    <section class="section">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Guía rápida</span>
+          <h2>¿Cómo empezar?</h2>
+          <p>Seis pasos para caminar con confianza por tu ciudad.</p>
+        </div>
+        <ol class="steps" style="list-style:none;padding:0">
+          <li class="step reveal"><div class="step__num">1</div><h4>Regístrate o inicia sesión</h4><p>Crea tu cuenta con tu correo o accede fácilmente con Google o Facebook.</p></li>
+          <li class="step reveal"><div class="step__num">2</div><h4>Activa tu ubicación</h4><p>Permite que la app detecte tu posición para mostrarte zonas de riesgo y rutas seguras cercanas.</p></li>
+          <li class="step reveal"><div class="step__num">3</div><h4>Explora el mapa interactivo</h4><p>Visualiza las zonas de riesgo (rojo), advertencia (amarillo) y rutas seguras (verde).</p></li>
+          <li class="step reveal"><div class="step__num">4</div><h4>Reporta incidencias</h4><p>Si ves veredas dañadas o cruces inseguros, repórtalo en tres pasos: completar, subir foto y enviar.</p></li>
+          <li class="step reveal"><div class="step__num">5</div><h4>Recibe alertas preventivas</h4><p>La app te notificará sobre riesgos cercanos para tomar decisiones seguras en tiempo real.</p></li>
+          <li class="step reveal"><div class="step__num">6</div><h4>Elige rutas seguras</h4><p>Usa las recomendaciones del sistema para desplazarte por Lima con confianza y tranquilidad.</p></li>
+        </ol>
+        <div class="start__cta reveal">
+          <a class="btn btn--lg" href="#contacto">Registrarme ahora</a>
+          <a class="btn btn--ghost btn--lg" href="#funcionalidades">Ver videotutorial</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- ESTADÍSTICAS                                                    -->
+    <!-- =============================================================== -->
+    <section class="section section--tint">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Datos de la comunidad</span>
+          <h2>Estadísticas de seguridad peatonal</h2>
+          <p>Consulta un resumen de incidencias reportadas por la comunidad y visualiza
+             las zonas con mayor riesgo para tomar mejores decisiones antes de desplazarte.</p>
+        </div>
+
+        <div class="stats">
+          <div class="stat reveal"><div class="stat__num">124</div><small>Reportes ciudadanos</small></div>
+          <div class="stat reveal"><div class="stat__num">36</div><small>Zonas de riesgo</small></div>
+          <div class="stat reveal"><div class="stat__num">58</div><small>Rutas seguras sugeridas</small></div>
+          <div class="stat reveal"><div class="stat__num">89</div><small>Alertas preventivas</small></div>
+        </div>
+
+        <div class="chart reveal">
+          <h4>Tipos de incidencias más reportadas</h4>
+          <div class="bar"><span class="bar__label">Veredas dañadas</span><div class="bar__track"><div class="bar__fill" data-pct="60"></div></div><span class="bar__val">60%</span></div>
+          <div class="bar"><span class="bar__label">Cruces inseguros</span><div class="bar__track"><div class="bar__fill" data-pct="30"></div></div><span class="bar__val">30%</span></div>
+          <div class="bar"><span class="bar__label">Falta de iluminación</span><div class="bar__track"><div class="bar__fill" data-pct="20"></div></div><span class="bar__val">20%</span></div>
+          <div class="bar"><span class="bar__label">Obstáculos en vía</span><div class="bar__track"><div class="bar__fill" data-pct="10"></div></div><span class="bar__val">10%</span></div>
+          <div class="chart__cta"><a class="btn btn--ghost" href="#contacto">Ver estadísticas completas</a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- CONTACTO                                                        -->
+    <!-- =============================================================== -->
+    <section class="section" id="contacto">
+      <div class="container">
+        <div class="section__head reveal">
+          <span class="eyebrow">Contacto</span>
+          <h2>Escríbenos</h2>
+          <p>¿Tienes dudas o sugerencias? Completa el formulario y te responderemos pronto.</p>
+        </div>
+
+        <div class="contact reveal">
+          <form id="contactForm" novalidate>
+            <div class="field">
+              <label for="nombre">Nombre <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="nombre" name="nombre" autocomplete="name" required minlength="2" placeholder="Tu nombre completo">
+              <span class="error">Ingresa tu nombre (mínimo 2 caracteres).</span>
+            </div>
+            <div class="field">
+              <label for="correo">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="correo" name="correo" autocomplete="email" required placeholder="nombre@correo.com">
+              <span class="error">Ingresa un correo válido, por ejemplo: nombre@correo.com</span>
+            </div>
+            <div class="field">
+              <label for="telefono">Número de teléfono <small style="color:var(--gris);font-weight:400">(opcional)</small></label>
+              <input type="tel" id="telefono" name="telefono" autocomplete="tel" inputmode="numeric" pattern="[0-9+ ]{6,15}" placeholder="+51 999 999 999">
+              <span class="error">Usa solo números (entre 6 y 15 dígitos).</span>
+            </div>
+            <div class="field">
+              <label for="asunto">Asunto <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="asunto" name="asunto" required minlength="3" placeholder="¿Sobre qué quieres escribirnos?">
+              <span class="error">Indica un asunto (mínimo 3 caracteres).</span>
+            </div>
+            <div class="field">
+              <label for="mensaje">Mensaje <span class="req" aria-hidden="true">*</span></label>
+              <textarea id="mensaje" name="mensaje" required minlength="10" placeholder="Cuéntanos en qué podemos ayudarte"></textarea>
+              <span class="error">Escribe tu mensaje (mínimo 10 caracteres).</span>
+            </div>
+
+            <label class="consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>Acepto el uso responsable de mis datos personales para responder a mi consulta,
+                conforme a la <a href="#">política de privacidad</a> de SafeWalk.</span>
+            </label>
+
+            <button type="submit" class="btn btn--lg btn--block">Enviar mensaje</button>
+
+            <p class="form-status" id="formStatus" role="status">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m5 13 4 4L19 7"/></svg>
+              ¡Mensaje enviado con éxito! Te responderemos a la brevedad.
+            </p>
+          </form>
+
+          <div class="contact__foot">
+            <a class="contact__mail" href="mailto:safewalkteam@gmail.com">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              safewalkteam@gmail.com
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =============================================================== -->
+  <!-- FOOTER                                                          -->
+  <!-- =============================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <a class="brand" href="#inicio">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#fff"/>
+              <circle cx="27" cy="12.5" r="2.4" fill="#1BBA7F"/>
+              <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
+            </svg>
+            <span><b>Safe</b>Walk</span>
+          </a>
+          <p>Camina seguro con información ciudadana en tiempo real. Nuestra plataforma
+             ayuda a identificar zonas de riesgo, reportar incidencias y encontrar rutas
+             más seguras para peatones urbanos y familias.</p>
+          <div class="footer__social">
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.45-.03-3.32-2.02-3.32-2.02 0-2.33 1.58-2.33 3.21V21H9V9Z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3H13V9c0-.9.3-1.5 1.6-1.5H16V4.8c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.3H7v3h2.8v8H13Z"/></svg></a>
+          </div>
+        </div>
+
+        <nav aria-label="Enlaces rápidos">
+          <h5>Enlaces rápidos</h5>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">¿Quiénes somos?</a></li>
+            <li><a href="#funcionalidades">Funcionalidades</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#dirigidos">¿A quiénes nos dirigimos?</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+
+        <nav aria-label="Recursos">
+          <h5>Recursos</h5>
+          <ul>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+            <li><a href="#">Uso responsable de datos</a></li>
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#funcionalidades">Mapa interactivo</a></li>
+            <li><a href="#funcionalidades">Reporte ciudadano</a></li>
+          </ul>
+        </nav>
+
+        <div>
+          <h5>Contacto</h5>
+          <ul class="footer__contact">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> safewalkteam@gmail.com</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.3 7-12a7 7 0 1 0-14 0c0 5.7 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg> Lima Metropolitana, Perú</li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10Z"/></svg> Atención digital para usuarios y ciudadanos interesados en mejorar la seguridad peatonal.</li>
+          </ul>
+          <a class="btn nav__register" href="#contacto" style="margin-top:.5rem">Escríbenos</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        © 2026 SafeWalk. Todos los derechos reservados.<br>
+        Proyecto académico desarrollado para IHC y Tecnologías Móviles · UPC
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Volver arriba">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m6 14 6-6 6 6"/></svg>
+  </button>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
