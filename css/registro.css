@@ -16,9 +16,9 @@ justify-content:center;
 align-items:center;
 }
 
-.login-card{
+.register-card{
 background:white;
-width:420px;
+width:450px;
 padding:40px;
 border-radius:20px;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
@@ -56,7 +56,7 @@ margin-bottom:30px;
 }
 
 .input-group{
-margin-bottom:20px;
+margin-bottom:18px;
 }
 
 .input-group label{
@@ -72,32 +72,30 @@ border:1px solid #DDE2DA;
 border-radius:10px;
 }
 
-.forgot{
-display:block;
-text-align:right;
+.checkbox{
+display:flex;
+gap:10px;
 margin-bottom:20px;
-text-decoration:none;
-color:#0F58C4;
 }
 
-.btn-login{
+.btn-register{
 width:100%;
 padding:15px;
 border:none;
 border-radius:10px;
-background:#0F58C4;
+background:#1C9D54;
 color:white;
 font-weight:600;
 cursor:pointer;
 }
 
-.register-link{
+.login-link{
 margin-top:20px;
 text-align:center;
 }
 
-.register-link a{
-color:#1C9D54;
+.login-link a{
+color:#0F58C4;
 text-decoration:none;
 font-weight:600;
 }
