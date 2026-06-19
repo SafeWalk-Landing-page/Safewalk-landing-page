@@ -5,10 +5,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SafeWalk | Iniciar Sesión</title>
+    <title>SafeWalk | Registro</title>
 
 ```
-<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/registro.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
     rel="stylesheet">
@@ -21,7 +21,7 @@
 ```
 <div class="container">
 
-    <div class="login-card">
+    <div class="register-card">
 
         <a href="index.html" class="back-btn">
             ← Volver al inicio
@@ -29,13 +29,20 @@
 
         <img src="img/logo.SafeWalk.png" alt="SafeWalk" class="logo">
 
-        <h1>Iniciar Sesión</h1>
+        <h1>Crear Cuenta</h1>
 
         <p class="subtitle">
-            Accede a tu cuenta para continuar
+            Regístrate para comenzar a usar SafeWalk
         </p>
 
         <form>
+
+            <div class="input-group">
+                <label>Nombre completo</label>
+                <input type="text"
+                    placeholder="Juan Pérez"
+                    required>
+            </div>
 
             <div class="input-group">
                 <label>Correo electrónico</label>
@@ -51,20 +58,28 @@
                     required>
             </div>
 
-            <a href="#" class="forgot">
-                ¿Olvidaste tu contraseña?
-            </a>
+            <div class="input-group">
+                <label>Confirmar contraseña</label>
+                <input type="password"
+                    placeholder="••••••••"
+                    required>
+            </div>
 
-            <button type="submit" class="btn-login">
-                Iniciar sesión
+            <div class="checkbox">
+                <input type="checkbox" required>
+                <span>Acepto los términos y condiciones</span>
+            </div>
+
+            <button type="submit" class="btn-register">
+                Registrarme
             </button>
 
         </form>
 
-        <p class="register-link">
-            ¿No tienes cuenta?
-            <a href="registro.html">Regístrate</a>
-        </p>
+        <div class="login-link">
+            ¿Ya tienes cuenta?
+            <a href="login.html">Inicia sesión</a>
+        </div>
 
     </div>
 
