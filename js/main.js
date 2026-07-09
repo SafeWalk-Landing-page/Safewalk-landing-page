@@ -1,24 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ======================================================
-     Animación al hacer scroll
-  ====================================================== */
-  const reveals = document.querySelectorAll('.reveal');
-
-  if ('IntersectionObserver' in window) {
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-in');
-          revealObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    reveals.forEach((el) => revealObserver.observe(el));
-  } else {
-    reveals.forEach((el) => el.classList.add('is-in'));
-  }
+  
   
   /* ======================================================
      Top bar y menú móvil
@@ -70,37 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  /* ======================================================
-     Link activo según sección
-  ====================================================== */
-  const sections = document.querySelectorAll('section[id]');
-
-  const setActiveLink = (id) => {
-    menuLinks.forEach((link) => {
-      const isActive = link.getAttribute('href') === `#${id}`;
-      link.classList.toggle('is-active', isActive);
-
-      if (isActive) {
-        link.setAttribute('aria-current', 'page');
-      } else {
-        link.removeAttribute('aria-current');
-      }
-    });
-  };
-
-  if ('IntersectionObserver' in window) {
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) setActiveLink(entry.target.id);
-      });
-    }, {
-      rootMargin: '-35% 0px -55% 0px',
-      threshold: 0
-    });
-
-    sections.forEach((section) => sectionObserver.observe(section));
-  }
-
+  
   /* ======================================================
      Botón volver arriba
   ====================================================== */

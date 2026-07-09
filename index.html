@@ -6,7 +6,7 @@
   <title>SafeWalk · Camina seguro con información ciudadana en tiempo real</title>
   <meta name="description" content="SafeWalk es una plataforma que muestra rutas seguras para transitar por las ciudades del Perú. Reporta incidencias, evita zonas de riesgo y camina con tranquilidad.">
 
-  <!-- Tipografía: Poppins (títulos/botones) · Inter (cuerpo/UI) · Montserrat (alternativa) -->
+  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,28 +16,21 @@
 </head>
 <body>
 
-  <!-- Accesibilidad: salto al contenido (Nielsen: flexibilidad y eficiencia) -->
+  
   <a class="skip-link" href="#inicio">Saltar al contenido</a>
 
-  <!-- =============================================================== -->
-  <!-- NAVEGACIÓN FIJA                                                 -->
-  <!-- =============================================================== -->
+  <!--Header-->
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a class="brand" href="#inicio" aria-label="SafeWalk, inicio">
-        <!-- Logo: pin + peatón -->
-        <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-          <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#fff"/>
-          <path d="M24 5C16.3 5 10 11.2 10 19c0 9.4 12.6 22.4 14 23.8C25.4 41.4 38 28.4 38 19 38 11.2 31.7 5 24 5Z" stroke="#3363C4" stroke-width="2"/>
-          <circle cx="27" cy="12.5" r="2.4" fill="#1BBA7F"/>
-          <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
-        </svg>
+        
+        <img class="logo_safewalk" src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
         <span><b>Safe</b>Walk</span>
       </a>
 
       <nav aria-label="Principal">
         <ul class="nav__links" id="navLinks">
-          <li><a href="#inicio" class="is-active" aria-current="page">Inicio</a></li>
+          <li><a href="#inicio">Inicio</a></li>
           <li><a href="#nosotros">Nosotros</a></li>
           <li><a href="#funcionalidades">Funcionalidades</a></li>
           <li><a href="#beneficios">Beneficios</a></li>
@@ -46,7 +39,7 @@
           <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#contacto">Contacto</a></li>
 
-          <!-- Botones que se muestran dentro del menú móvil -->
+          <!-- Botones menú móvil -->
           <li class="nav__mobile-actions">
             <a class="nav__login" href="#contacto">Iniciar sesión</a>
             <a class="btn nav__register" href="#contacto">Registrarse</a>
@@ -54,7 +47,7 @@
         </ul>
       </nav>
 
-      <!-- Botones visibles en escritorio -->
+      <!-- Botones visibles en desktop -->
       <div class="nav__actions" id="navActions">
         <a class="nav__login" href="login.html">Iniciar sesión</a>
         <a class="btn nav__register" href="registro.html">Registrarse</a>
@@ -66,7 +59,7 @@
     </div>
   </header>
 
-  <!-- Alerta superior: se puede cerrar con JavaScript -->
+  <!-- Alerta superior -->
   <div class="alert-bar" id="alertBar" role="status">
     <div class="container">
       <svg class="alert-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 21h22L12 2Zm0 5 7.5 13h-15L12 7Zm-1 4v4h2v-4h-2Zm0 5v2h2v-2h-2Z"/></svg>
@@ -77,19 +70,12 @@
 
   <main>
 
-    <!-- =============================================================== -->
-    <!-- HERO                                                            -->
-    <!-- =============================================================== -->
-    <section class="hero container" id="inicio">
+    <!-- Hero section-->
+    <section class="hero container" id="inicio"> 
       <div class="hero__grid">
         <div class="hero__text reveal">
           <div class="hero__logo">
-            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#ECF1FB"/>
-              <path d="M24 5C16.3 5 10 11.2 10 19c0 9.4 12.6 22.4 14 23.8C25.4 41.4 38 28.4 38 19 38 11.2 31.7 5 24 5Z" stroke="#3363C4" stroke-width="2.2"/>
-              <circle cx="27" cy="12.5" r="2.6" fill="#1BBA7F"/>
-              <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
-            </svg>
+            <img src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
             <span>Safe<i>Walk</i></span>
           </div>
           <h1>¡Bienvenido a <b>SafeWalk</b>!</h1>
@@ -106,16 +92,14 @@
 
         <div class="hero__media reveal">
           <div>
-            <img class="local-img" src="img/safewalkhero.png" alt="Persona consultando rutas seguras en la app SafeWalk" fetchpriority="high">
+            <img class="local-img" src="img/safewalkhero.png" alt="Persona consultando rutas seguras en la app SafeWalk">
           </div>
           <div class="hero__badge"><span class="dot"></span> Ruta segura encontrada</div>
         </div>
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- ¿QUIÉNES SOMOS? + EQUIPO                                        -->
-    <!-- =============================================================== -->
+    <!--Quienes somos section-->
     <section class="section section--tint" id="nosotros">
       <div class="container">
         <div class="section__head reveal">
@@ -129,7 +113,7 @@
         </p>
 
         <div class="team reveal">
-          <!-- Repetir tarjeta por integrante. Reemplaza la imagen en images/team-*.jpg -->
+          
           <figure class="team__card">
             <div class="team__photo"><div><img class="local-img" src="img/team_gianfranco.png" loading="lazy" decoding="async" alt="Foto de Gianfranco"></div></div>
             <figcaption><h4>Gian Franco Timoteo</h4><small>Developer SafeWalk</small></figcaption>
@@ -178,9 +162,7 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- VALORES + CONTEXTO                                              -->
-    <!-- =============================================================== -->
+    <!--Valores-->
     <section class="section">
       <div class="container">
         <div class="values-row">
@@ -245,15 +227,7 @@
             </div>
           </div>
           <div class="feature__visual">
-            <svg viewBox="0 0 360 240" role="img" aria-label="Mapa con zonas de riesgo y rutas seguras">
-              <rect width="360" height="240" rx="10" fill="#EEF0EC"/>
-              <path d="M0 70h360M0 150h360M120 0v240M250 0v240" stroke="#DDE2DA" stroke-width="6"/>
-              <path d="M30 200 Q120 160 180 150 T330 60" stroke="#1BBA7F" stroke-width="6" fill="none" stroke-linecap="round"/>
-              <circle cx="30" cy="200" r="7" fill="#1BBA7F"/><circle cx="330" cy="60" r="7" fill="#3363C4"/>
-              <circle cx="95" cy="55" r="26" fill="#E53935" opacity=".22"/><circle cx="95" cy="55" r="10" fill="#E53935"/>
-              <circle cx="270" cy="180" r="22" fill="#FBC02D" opacity=".30"/><circle cx="270" cy="180" r="9" fill="#FBC02D"/>
-              <g transform="translate(150 95)"><circle r="14" fill="#fff"/><path d="M-4 -6h8v3l-3 9-3-9z" fill="#E53935"/></g>
-            </svg>
+            <img class="local-img" src="img/feature-mapa-riesgos.png" loading="lazy" decoding="async" alt="Mapa con zonas de riesgo y rutas seguras">
           </div>
         </div>
 
@@ -268,25 +242,7 @@
                autoridades tengan información más precisa sobre la infraestructura.</p>
           </div>
           <div class="feature__visual">
-            <svg viewBox="0 0 360 200" role="img" aria-label="Flujo de reporte en tres pasos">
-              <g font-family="Inter, sans-serif" font-size="11" fill="#5A626C" text-anchor="middle">
-                <rect x="20" y="50" width="80" height="100" rx="10" fill="#ECF1FB" stroke="#3363C4"/>
-                <text x="60" y="40">1. Completar</text>
-                <rect x="36" y="70" width="48" height="7" rx="3" fill="#3363C4"/>
-                <rect x="36" y="86" width="48" height="7" rx="3" fill="#C7D6F2"/>
-                <rect x="36" y="102" width="48" height="7" rx="3" fill="#C7D6F2"/>
-                <path d="M108 100h24" stroke="#1BBA7F" stroke-width="2" marker-end="url(#ar)"/>
-                <rect x="140" y="50" width="80" height="100" rx="10" fill="#E7F8F1" stroke="#1BBA7F"/>
-                <text x="180" y="40">2. Subir foto</text>
-                <circle cx="180" cy="95" r="20" fill="none" stroke="#1BBA7F" stroke-width="2"/>
-                <path d="M172 95h16M180 87v16" stroke="#1BBA7F" stroke-width="2"/>
-                <path d="M228 100h24" stroke="#1BBA7F" stroke-width="2" marker-end="url(#ar)"/>
-                <rect x="260" y="50" width="80" height="100" rx="10" fill="#ECF1FB" stroke="#3363C4"/>
-                <text x="300" y="40">3. Enviar</text>
-                <path d="M285 98l9 9 18-20" stroke="#1BBA7F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              </g>
-              <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0l6 3-6 3z" fill="#1BBA7F"/></marker></defs>
-            </svg>
+            <img class="local-img" src="img/feature-reporte-3pasos.png" loading="lazy" decoding="async" alt="Flujo de reporte en tres pasos: completar, subir foto y enviar">
           </div>
         </div>
 
@@ -300,23 +256,7 @@
                captar la atención rápidamente y ayudar en la toma de decisiones en movimiento.</p>
           </div>
           <div class="feature__visual">
-            <svg viewBox="0 0 360 200" role="img" aria-label="Ejemplos de alertas preventivas">
-              <g font-family="Inter, sans-serif" font-size="11">
-                <rect x="30" y="30" width="300" height="44" rx="10" fill="#FDECEC" stroke="#E53935"/>
-                <path d="M55 52 47 66h16z" fill="#E53935"/><rect x="50" y="56" width="2" height="5" fill="#fff"/><rect x="50" y="63" width="2" height="2" fill="#fff"/>
-                <text x="78" y="50" fill="#1A1D21" font-weight="600">Evita esta zona</text>
-                <text x="78" y="64" fill="#5A626C">Incidente reportado a 120 m de tu ruta</text>
-
-                <rect x="30" y="86" width="300" height="44" rx="10" fill="#FEF6E0" stroke="#FBC02D"/>
-                <path d="M55 108 47 122h16z" fill="#FBC02D"/>
-                <text x="78" y="106" fill="#1A1D21" font-weight="600">Zona de advertencia cercana</text>
-                <text x="78" y="120" fill="#5A626C">Cruce sin señalización adelante</text>
-
-                <rect x="30" y="142" width="300" height="40" rx="10" fill="#E7F8F1" stroke="#1BBA7F"/>
-                <path d="M50 160l6 6 12-13" stroke="#1BBA7F" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-                <text x="78" y="166" fill="#149065" font-weight="600">Ruta segura encontrada</text>
-              </g>
-            </svg>
+            <img class="local-img" src="img/feature-alertas-preventivas.png" loading="lazy" decoding="async" alt="Ejemplos de alertas preventivas: evita esta zona, zona de advertencia y ruta segura encontrada">
           </div>
         </div>
 
@@ -331,14 +271,7 @@
                exposición al riesgo.</p>
           </div>
           <div class="feature__visual">
-            <svg viewBox="0 0 360 220" role="img" aria-label="Ruta segura sugerida en el mapa">
-              <rect width="360" height="220" rx="10" fill="#EEF0EC"/>
-              <path d="M0 60h360M0 140h360M90 0v220M230 0v220" stroke="#DDE2DA" stroke-width="6"/>
-              <path d="M40 180 L90 180 L90 100 L230 100 L230 50 L320 50" stroke="#1BBA7F" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0"/>
-              <circle cx="40" cy="180" r="9" fill="#1BBA7F" stroke="#fff" stroke-width="3"/>
-              <g transform="translate(320 50)"><path d="M0 -14C-7 -14 -12 -9 -12 -2 -12 7 0 16 0 16s12-9 12-18C12 -9 7 -14 0 -14Z" fill="#3363C4"/><circle cy="-3" r="4" fill="#fff"/></g>
-              <circle cx="150" cy="40" r="16" fill="#E53935" opacity=".2"/><circle cx="150" cy="40" r="6" fill="#E53935"/>
-            </svg>
+            <img class="local-img" src="img/feature-ruta-segura.png" loading="lazy" decoding="async" alt="Ruta segura sugerida en el mapa">
           </div>
         </div>
       </div>
@@ -358,28 +291,7 @@
 
         <div class="demo reveal">
           <div class="demo__phone">
-            <svg viewBox="0 0 200 400" role="img" aria-label="Vista previa de la app móvil SafeWalk">
-              <rect width="200" height="400" fill="#F4F5F0"/>
-              <rect width="200" height="48" fill="#3363C4"/>
-              <text x="16" y="30" font-family="Poppins, sans-serif" font-size="14" font-weight="700" fill="#fff">SafeWalk</text>
-              <circle cx="178" cy="24" r="9" fill="#1BBA7F"/>
-              <!-- mapa -->
-              <rect y="48" width="200" height="300" fill="#EEF0EC"/>
-              <path d="M0 120h200M0 230h200M70 48v300M140 48v300" stroke="#DDE2DA" stroke-width="5"/>
-              <path d="M30 320 L70 320 L70 200 L140 200 L140 110 L175 110" stroke="#1BBA7F" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="30" cy="320" r="7" fill="#1BBA7F" stroke="#fff" stroke-width="2"/>
-              <circle cx="100" cy="90" r="18" fill="#E53935" opacity=".22"/><circle cx="100" cy="90" r="7" fill="#E53935"/>
-              <circle cx="155" cy="260" r="15" fill="#FBC02D" opacity=".3"/><circle cx="155" cy="260" r="6" fill="#FBC02D"/>
-              <!-- snackbar -->
-              <rect x="14" y="300" width="172" height="36" rx="8" fill="#1A1D21"/>
-              <path d="M30 314l5 5 9-10" stroke="#1BBA7F" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <text x="52" y="322" font-family="Inter, sans-serif" font-size="9" fill="#fff">Ruta segura encontrada</text>
-              <!-- nav inferior -->
-              <rect y="348" width="200" height="52" fill="#fff"/>
-              <circle cx="50" cy="374" r="6" fill="#3363C4"/>
-              <circle cx="100" cy="374" r="12" fill="#1BBA7F"/><path d="M95 374h10M100 369v10" stroke="#fff" stroke-width="2"/>
-              <circle cx="150" cy="374" r="6" fill="#C7D6F2"/>
-            </svg>
+            <img class="local-img" src="img/demo-app-movil.png" loading="lazy" decoding="async" alt="Vista previa de la app móvil SafeWalk mostrando el mapa, una ruta segura y una alerta">
           </div>
           <div class="demo__text">
             <h3 class="demo__title">Explora antes de registrarte</h3>
@@ -624,11 +536,7 @@
       <div class="footer__grid">
         <div>
           <a class="brand" href="#inicio">
-            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M24 3C15 3 8 10 8 19c0 11 16 26 16 26s16-15 16-26C40 10 33 3 24 3Z" fill="#fff"/>
-              <circle cx="27" cy="12.5" r="2.4" fill="#1BBA7F"/>
-              <path d="M25.5 16c-1 0-1.8.6-2.1 1.5l-1.4 4-2.8 1.2.7 1.8 3.4-1.4.9-2.5.9 2.8-2.6 4.6 1.7 1 3-5.2 1.6 2.4 2.8 2-1.4-2.4-1.9-3.4-1 1.6-4.5-.6-1.9Z" fill="#1BBA7F"/>
-            </svg>
+            <img class="local-img" src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
             <span><b>Safe</b>Walk</span>
           </a>
           <p>Camina seguro con información ciudadana en tiempo real. Nuestra plataforma
@@ -689,5 +597,7 @@
   </button>
 
   <script src="js/main.js"></script>
+
+  
 </body>
 </html>
