@@ -14,17 +14,14 @@
   <meta name="theme-color" content="#3363C4">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-
+<body> 
   
-  <a class="skip-link" href="#inicio">Saltar al contenido</a>
 
   <!--Header-->
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a class="brand" href="#inicio" aria-label="SafeWalk, inicio">
-        
-        <img class="logo_safewalk" src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
+      <a class="safewalk" href="#inicio" aria-label="SafeWalk, inicio">        
+        <img src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
         <span><b>Safe</b>Walk</span>
       </a>
 
@@ -75,7 +72,7 @@
       <div class="hero__grid">
         <div class="hero__text reveal">
           <div class="hero__logo">
-            <img src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
+            <img class="logo_safewalk" src="img/logo.SafeWalk.png" alt="Logo SafeWalk">
             <span>Safe<i>Walk</i></span>
           </div>
           <h1>¡Bienvenido a <b>SafeWalk</b>!</h1>
@@ -144,7 +141,7 @@
           </figure>
         </div>
 
-        <!-- Misión / Visión -->
+        <!-- Misión y Visión -->
         <div class="mv">
           <article class="mv__card reveal">
             <div class="ico-pill"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg></div>
@@ -200,9 +197,7 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- FUNCIONALIDADES                                                 -->
-    <!-- =============================================================== -->
+    <!-- Funcionalidades -->
     <section class="section section--tint" id="funcionalidades">
       <div class="container">
         <div class="section__head reveal">
@@ -227,7 +222,7 @@
             </div>
           </div>
           <div class="feature__visual">
-            <img class="local-img" src="img/feature-mapa-riesgos.png" loading="lazy" decoding="async" alt="Mapa con zonas de riesgo y rutas seguras">
+            <img class="local-img" src="img/mapa_riesgo_interactivo.png" loading="lazy" decoding="async" alt="Mapa con zonas de riesgo y rutas seguras">
           </div>
         </div>
 
@@ -242,7 +237,7 @@
                autoridades tengan información más precisa sobre la infraestructura.</p>
           </div>
           <div class="feature__visual">
-            <img class="local-img" src="img/feature-reporte-3pasos.png" loading="lazy" decoding="async" alt="Flujo de reporte en tres pasos: completar, subir foto y enviar">
+            <img class="local-img" src="img/pasos_reporte.png" loading="lazy" decoding="async" alt="Flujo de reporte en tres pasos: completar, subir foto y enviar">
           </div>
         </div>
 
@@ -256,7 +251,7 @@
                captar la atención rápidamente y ayudar en la toma de decisiones en movimiento.</p>
           </div>
           <div class="feature__visual">
-            <img class="local-img" src="img/feature-alertas-preventivas.png" loading="lazy" decoding="async" alt="Ejemplos de alertas preventivas: evita esta zona, zona de advertencia y ruta segura encontrada">
+            <img class="local-img" src="img/alertas_preventivas.png" loading="lazy" decoding="async" alt="Ejemplos de alertas preventivas: evita esta zona, zona de advertencia y ruta segura encontrada">
           </div>
         </div>
 
@@ -271,15 +266,14 @@
                exposición al riesgo.</p>
           </div>
           <div class="feature__visual">
-            <img class="local-img" src="img/feature-ruta-segura.png" loading="lazy" decoding="async" alt="Ruta segura sugerida en el mapa">
+            <img class="local-img" src="img/rutas_seguras.png" loading="lazy" decoding="async" alt="Ruta segura sugerida en el mapa">
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- DEMO INTERACTIVA                                                -->
-    <!-- =============================================================== -->
+    <!--Demo interactiva-->
+
     <section class="section">
       <div class="container">
         <div class="section__head reveal">
@@ -290,8 +284,9 @@
         </div>
 
         <div class="demo reveal">
-          <div class="demo__phone">
-            <img class="local-img" src="img/demo-app-movil.png" loading="lazy" decoding="async" alt="Vista previa de la app móvil SafeWalk mostrando el mapa, una ruta segura y una alerta">
+          <div class="demo">
+            <!--<img class="local-img" src="img/demo-app-movil.png" loading="lazy" decoding="async" alt="Vista previa de la app móvil SafeWalk mostrando el mapa, una ruta segura y una alerta">-->
+            <img src="img/mapa_interactivo_demostracion.png" alt="Mapa interactivo demostracion">
           </div>
           <div class="demo__text">
             <h3 class="demo__title">Explora antes de registrarte</h3>
@@ -300,7 +295,7 @@
               (verde) directamente en el mapa. Cuando estés listo, crea tu cuenta gratuita
               para reportar incidencias y recibir alertas personalizadas.</p>
             <div class="hero__cta">
-              <a class="btn" href="#contacto">Registrarme gratis</a>
+              <a class="btn" href="registro.html">Registrarme gratis</a>
               <a class="btn btn--ghost" href="#funcionalidades">Ver funcionalidades</a>
             </div>
           </div>
@@ -308,14 +303,13 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- BENEFICIOS                                                      -->
-    <!-- =============================================================== -->
+    <!--Beneficios section-->
+
     <section class="section section--tint" id="beneficios">
       <div class="container">
         <div class="section__head reveal">
           <span class="eyebrow">Beneficios</span>
-          <h2>Por qué elegir SafeWalk</h2>
+          <h2>¿Por qué elegir SafeWalk?</h2>
         </div>
         <div class="cards-4">
           <article class="benefit reveal">
@@ -342,9 +336,8 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- SEGMENTOS OBJETIVO                                              -->
-    <!-- =============================================================== -->
+     <!--A quienes nos dirigimos Section-->
+  
     <section class="section" id="dirigidos">
       <div class="container">
         <div class="section__head reveal">
@@ -372,9 +365,9 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- TESTIMONIOS                                                     -->
-    <!-- =============================================================== -->
+    
+    <!--Testimonios Section-->
+
     <section class="section section--tint" id="testimonios">
       <div class="container">
         <div class="section__head reveal">
@@ -408,9 +401,7 @@
       </div>
     </section>
 
-    <!-- =============================================================== -->
-    <!-- CÓMO EMPEZAR                                                    -->
-    <!-- =============================================================== -->
+    <!--Como empezar section-->
     <section class="section" id="como-empezar">
       <div class="container">
         <div class="section__head reveal">
