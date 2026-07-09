@@ -565,7 +565,8 @@ main { padding-top: 0; }
 /* ------------------------------------------------------------------ */
 .footer { background: #3363C4; color: #dbe5f8; padding-block: 3.5rem 1.5rem; margin-top: clamp(3.5rem, 2.5rem + 4vw, 6rem); }
 .footer__grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1.2fr; gap: 2rem; }
-.footer .brand { color: #fff; margin-bottom: 1rem; }
+.footer .brand { display: flex; align-items: center; gap: .55rem; }
+.footer .brand img { width: 100px; height: auto; object-fit: contain;}
 .footer p { font-size: .9rem; color: #c4d3f1; max-width: 36ch; }
 .footer h5 { font-family: "Poppins", "Montserrat", system-ui, sans-serif; color: #fff; font-size: .98rem; margin: 0 0 1rem; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
@@ -591,7 +592,7 @@ main { padding-top: 0; }
 /* ------------------------------------------------------------------ */
 .to-top {
   position: fixed;
-  right: 1.25rem; bottom: 1.25rem;
+  right: 1.25rem; bottom: 5.75rem;
   width: 48px; height: 48px;
   border-radius: 12px;
   background: #3363C4;
@@ -604,6 +605,64 @@ main { padding-top: 0; }
 }
 .to-top.is-visible { display: grid; }
 .to-top:hover { background: #1BBA7F; }
+
+
+/* ------------------------------------------------------------------ */
+/* Botón flotante para demo                                           */
+/* ------------------------------------------------------------------ */
+.floating-demo {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 100;
+}
+
+.floating-demo__button {
+  border: 0;
+  border-radius: 999px;
+  padding: .9rem 1.25rem;
+  background: #1BBA7F;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(26, 29, 33, .22);
+}
+
+.floating-demo__button:hover {
+  background: #3363C4;
+}
+
+.floating-demo__options {
+  display: none;
+  position: absolute;
+  right: 0;
+  bottom: 60px;
+  width: 185px;
+  padding: .55rem;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(26, 29, 33, .18);
+}
+
+.floating-demo:hover .floating-demo__options,
+.floating-demo:focus-within .floating-demo__options {
+  display: grid;
+  gap: .45rem;
+}
+
+.floating-demo__options a {
+  padding: .75rem .9rem;
+  border-radius: 12px;
+  color: #284FA0;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.floating-demo__options a:hover,
+.floating-demo__options a:focus {
+  background: #EAF1FF;
+  color: #1BBA7F;
+}
 
 /* ------------------------------------------------------------------ */
 /* Responsive                                                          */
@@ -648,6 +707,10 @@ main { padding-top: 0; }
 }
 
 @media (max-width: 560px) {
+  .floating-demo { right: .9rem; bottom: .9rem;}
+  .floating-demo__button { padding: .8rem 1rem; font-size: .9rem;}
+  .floating-demo__options { width: 170px; bottom: 55px; }
+
   .team { grid-template-columns: repeat(2, 1fr); }
   .cards-4, .stats { grid-template-columns: 1fr; }
   .footer__grid { grid-template-columns: 1fr; }
