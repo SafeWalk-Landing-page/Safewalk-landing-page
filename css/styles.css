@@ -56,19 +56,6 @@ p  { margin: 0; }
   margin-bottom: 1rem;
 }
 
-.skip-link {
-  position: absolute;
-  left: 1rem;
-  top: -100px;
-  z-index: 200;
-  background: #3363C4;
-  color: #fff;
-  padding: .7rem 1.1rem;
-  border-radius: 8px;
-  font-weight: 600;
-}
-.skip-link:focus { top: 1rem; }
-
 /* ------------------------------------------------------------------ */
 /* Botones                                                             */
 /* ------------------------------------------------------------------ */
@@ -255,7 +242,7 @@ main { padding-top: 0; }
 
 .team {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
 .team__card { text-align: center; }
@@ -388,17 +375,8 @@ main { padding-top: 0; }
   gap: 2.5rem;
   align-items: center;
 }
-.demo__phone {
-  max-width: 280px;
-  margin-inline: auto;
-  border: 10px solid #1A1D21;
-  border-radius: 36px;
-  overflow: hidden;
-  aspect-ratio: 9 / 18;
-  background: #F4F5F0;
-  box-shadow: 0 8px 24px rgba(40,79,160,.10);
-}
-.demo__phone img { width: 100%; height: 100%; object-fit: cover; }
+.demo__media { border-radius: 10px; overflow: hidden; }
+.demo__media img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .demo__title { margin-bottom: 1rem; }
 .demo__copy { color: #5A626C; margin-bottom: 1.5rem; }
@@ -666,7 +644,7 @@ main { padding-top: 0; }
   .cards-4 { grid-template-columns: repeat(2, 1fr); }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .steps { grid-template-columns: 1fr; }
-  .demo__phone { order: -1; }
+  .demo__media { order: -1; }
 }
 
 @media (max-width: 560px) {
@@ -676,4 +654,3 @@ main { padding-top: 0; }
   .bar { grid-template-columns: 110px 1fr 40px; gap: .6rem; }
   .bar__label { font-size: .8rem; }
 }
-
