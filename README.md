@@ -13,7 +13,7 @@ Este repositorio contiene el desarrollo de la **Landing Page** del proyecto, cuy
 
 ## Objetivo
 
-Desarrollar una landing page moderna, accesible e intuitiva que comunique la problemática de la seguridad peatonal, presente la solución propuesta por SafeWalk y motive a los usuarios a conocer la plataforma.
+Desarrollar una landing page moderna, accesible e intuitiva que comunique la problemática de la seguridad peatonal, presente la solución propuesta por SafeWalk y que motive a los usuarios a conocer la plataforma.
 
 ---
 
