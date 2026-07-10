@@ -5,7 +5,7 @@
 
 SafeWalk es un proyecto académico desarrollado por estudiantes de la Universidad Peruana de Ciencias Aplicadas (UPC) para el curso de **IHC y Tecnologías Móviles**.
 
-El proyecto propone una solución digital enfocada en mejorar la seguridad peatonal en entornos urbanos a través de una plataforma colaborativa que permite a los ciudadanos identificar, reportar y visualizar zonas de riesgo, como veredas deterioradas, cruces inseguros y semáforos defectuosos.
+El proyecto propone una solución digital enfocada la mejora de la seguridad peatonal en entornos urbanos a través de una plataforma colaborativa que permite a los ciudadanos identificar, reportar y visualizar zonas de riesgo, como veredas deterioradas, cruces inseguros y semáforos defectuosos.
 
 Este repositorio contiene el desarrollo de la **Landing Page** del proyecto, cuyo objetivo es presentar la propuesta de valor de SafeWalk, dar a conocer sus beneficios y captar el interés de los usuarios objetivo.
 
