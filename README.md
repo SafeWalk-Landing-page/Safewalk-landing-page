@@ -59,7 +59,7 @@ Usuarios que requieren desplazarse de manera segura con menores en espacios urba
 
 ## Propuesta de valor
 
-A diferencia de otras aplicaciones de movilidad, SafeWalk está diseñada específicamente para los peatones. La plataforma combina tanto información colaborativa como mapas interactivos y alertas preventivas para ayudar a los usuarios a tomar decisiones más seguras durante sus desplazamientos diarios.
+En contraste con otras aplicaciones de movilidad, SafeWalk está diseñada específicamente para los peatones. La plataforma combina tanto información colaborativa como mapas interactivos y alertas preventivas para ayudar a los usuarios a tomar decisiones más seguras durante sus desplazamientos diarios.
 
 ---
 
