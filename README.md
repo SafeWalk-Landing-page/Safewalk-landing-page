@@ -91,7 +91,7 @@ Este repositorio contiene el desarrollo de la Landing Page de SafeWalk, incluyen
 
 ## Contexto académico
 
-Proyecto desarrollado para el curso **IHC y Tecnologías Móviles** de la carrera de Ingeniería de Software e Ingeniería de Sistemas de Información de la **Universidad Peruana de Ciencias Aplicadas (UPC)**.
+Este proyecto ha sido desarrollado para el curso **IHC y Tecnologías Móviles** de la carrera de Ingeniería de Software e Ingeniería de Sistemas de Información de la **Universidad Peruana de Ciencias Aplicadas (UPC)**.
 
 ---
 
